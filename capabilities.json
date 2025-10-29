@@ -1,0 +1,18 @@
+{
+  "android": {
+    "appium:deviceName": "emulator-5554",
+    "appium:platformVersion": "16",
+    "appium:automationName": "UiAutomator2",
+    "appium:appPackage": "com.teammapa.seniorcare.patient",
+    "appium:appActivity": "com.teammapa.seniorcare.patient.MainActivity"
+  },
+  "ios": {
+    "appium:app": "/Users/teammapa/Library/Developer/Xcode/DerivedData/Patient-gjartqafygingneqowigafdbutss/Build/Products/Debug-iphonesimulator/Patient.app",
+    "appium:deviceName": "iPhone 16",
+    "appium:platformVersion": "18.6",
+    "appium:automationName": "XCUITest",
+    "appium:bundleId": "com.teammapa.seniorcare.patient",
+    "appium:udid": "C326FA8A-2B87-47E3-94E6-2196E82ED708",
+    "appium:xcodeOrgId": "TJTL259G54"
+  }
+}

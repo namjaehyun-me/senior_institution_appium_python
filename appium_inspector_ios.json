@@ -1,0 +1,9 @@
+{
+  "platformName": "iOS",
+  "appium:automationName": "XCUITest",
+  "appium:deviceName": "iPhone 14",
+  "appium:platformVersion": "18.6",
+  "appium:app": "/Users/teammapa/Library/Developer/Xcode/DerivedData/Patient-gjartqafygingneqowigafdbutss/Build/Products/Debug-iphonesimulator/Patient.app",
+  "appium:noReset": true,
+  "appium:newCommandTimeout": 300
+}
