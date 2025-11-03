@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 from conftest import * 
 
-class TestHomeScreen:
+class TestHomeScreenMatching:
     
     def _get_platform(self, driver):
         """플랫폼 확인"""
@@ -38,6 +38,7 @@ class TestHomeScreen:
                 'first_result': (AppiumBy.XPATH, '//android.widget.Button[@text="경기 가평군 가평읍 가화로 225-3 (S타운)"]'),
                 'confirm_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="확인"]'),
                 'confirm_btn2': (AppiumBy.XPATH, '//android.widget.Button[@resource-id="android:id/button1"]'),
+                'confirm_btn_2': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().resourceId("android:id/button1")'),
                 'confirm_btn3': (AppiumBy.XPATH, '//android.widget.Button[@resource-id="android:id/button1"]'),
                 'confirm_btn4': (AppiumBy.XPATH, '//android.widget.Button[@resource-id="android:id/button1"]'),
                 'confirm_btn5': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="확인"])[2]'),
@@ -61,6 +62,8 @@ class TestHomeScreen:
                 'main_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="메인이동"]'),
                 'back_btn1': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]'),
                 'back_btn2': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup'),
+                'back_btn3': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup'),
+                'back_btn4': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]'),
                 'ltc_facility_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='장기요양기관 찾기']"),
                 'location_access': (AppiumBy.ID, "com.android.permissioncontroller:id/permission_allow_foreground_only_button"),
                 'region_dropdown': (AppiumBy.XPATH, "//android.widget.Spinner"),
@@ -110,7 +113,8 @@ class TestHomeScreen:
                 'caregiver_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='간병인']"),
                 'caregiver_apply_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='간병인 신청하기']"),
                 'term_care_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="기간제 간병 (24시간 옆에서 케어해 드립니다)"]'),
-                'start_date_input': (AppiumBy.XPATH, '(//android.widget.EditText[@text="날짜 선택"])[1]'),
+                # 'start_date_input': (AppiumBy.XPATH, '(//android.widget.EditText[@text="날짜 선택"])[1]'),
+                'start_date_input': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("날짜 선택").instance(0)'),
                 'year_2026': (AppiumBy.XPATH, "//android.widget.TextView[@text='2026']"),
                 'month_10': (AppiumBy.XPATH, "//android.widget.TextView[@text='10월']"),
                 'day_22': (AppiumBy.XPATH, "//android.widget.TextView[@text='22']"),
@@ -118,14 +122,24 @@ class TestHomeScreen:
                 'time_16': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'end_date_dropdown': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="선택"])[2]'),
                 'home_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="집"]'),
-                'detail_address_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="상세주소를 입력하세요"]'),
+                'detail_address_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="상세주소"]'),
                 'surgery_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="수술"]'),
                 'general_room_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="일반실"]'),
                 'hourly_rate_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="시급을 입력하세요"]'),
                 'caregiver_notice_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="간병 공고"]'),
                 'no_problem_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='이상없음']"),
                 'agree_caregiver_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='네, 동의합니다.']"),
-                'register_caregiver_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='등록��기']")
+                'register_caregiver_btn': (AppiumBy.XPATH, "//android.widget.TextView[@text='등록��기']"),
+                'mony_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="시급 제안"]'),
+                # 동행
+                'hope_mony_input': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[6]'),
+                'meeting_place_add_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]'),
+                'visit_place_add_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup[5]/android.view.ViewGroup[1]'),
+                'confirm_btn6': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="확인"])[1]'),
+                'confirm_btn7': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="확인"]'),
+                'same_return_checkbox': (AppiumBy.XPATH, '//android.widget.TextView[@text="복귀장소가 만남장소와 동일합니다."]'),
+                'patient_location_input': (AppiumBy.XPATH, '//android.widget.EditText[@text="예시) 서울시 강남구"]'),
+                'pass_keyboard_btn': (AppiumBy.XPATH, '//android.widget.HorizontalScrollView/android.view.ViewGroup'),
             },
             'ios': {
                 # TODO: iOS 요소들 - 실제 요소 확인 후 수정 필요
@@ -201,7 +215,15 @@ class TestHomeScreen:
                 'caregiver_notice_checkbox': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='간병 공고']"),
                 'no_problem_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='이상없음']"),
                 'agree_caregiver_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='네, 동의합니다.']"),
-                'register_caregiver_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='등록기']")
+                'register_caregiver_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='등록기']"),
+                'mony_input': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='등록기']"),
+                # 동행
+                'hope_mony_input': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@name='희망 시급']"),
+                'meeting_place_add_btn': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='추가']"),
+                'visit_place_add_btn': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='추가']"),
+                'confirm_btn6': (AppiumBy.XPATH, "(//XCUIElementTypeStaticText[@name='확인'])[1]"),
+                'confirm_btn7': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='확인']"),
+                'same_return_checkbox': (AppiumBy.XPATH, "//XCUIElementTypeButton[contains(@name,'동일합니다')]"),
             }
         }
         
@@ -1070,6 +1092,15 @@ class TestHomeScreen:
             caregiver_apply_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "간병인서비스 신청하기")
             caregiver_apply_btn.click()
             time.sleep(1)
+
+            els = driver.find_elements(AppiumBy.ACCESSIBILITY_ID, "새로 등록")
+            # 화면 안에 최소 2개가 보이면 종료
+            print("els length:", len(els), type(len(els)))
+            if len(els) == 1:
+                els[0].click()
+                # time.sleep(1)
+            else:
+                pass
             
             # 기간제 간병 체크박스 클릭
             term_care_checkbox = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'term_care_checkbox')))
@@ -1082,7 +1113,8 @@ class TestHomeScreen:
             # time.sleep(1)
 
             # 시작 날짜 설정 인풋 클릭
-            start_date_input = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'start_date_input')))
+            # start_date_input = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'start_date_input')))
+            start_date_input = driver.find_element(*self._get_locator(driver, 'start_date_input'))
             start_date_input.click()
             time.sleep(1)
             
@@ -1100,7 +1132,8 @@ class TestHomeScreen:
             # time.sleep(1)
             
             # 확인 버튼 클릭
-            start_date_input = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn2')))
+            # start_date_input = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn2')))
+            confirm_btn = driver.find_element(*self._get_locator(driver, 'confirm_btn_2'))
             confirm_btn.click()
             time.sleep(1)
             
@@ -1110,19 +1143,27 @@ class TestHomeScreen:
             start_date_dropdown.click()
             time.sleep(1)
             
-            # 16:00 클릭
+            # 시간 항목의 첫번쨰 클릭
             time_16 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'time_16')))
             time_16.click()
             time.sleep(1)
 
             # 선택 드롭다운 클릭
-            end_date_dropdown = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'end_date_dropdown')))
-            end_date_dropdown.click()
-            time.sleep(1)
+            # end_date_dropdown = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'end_date_dropdown')))
+            # end_date_dropdown.click()
+            # time.sleep(1)
             
-            # 16:00 클릭
-            time_16 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'time_16')))
-            time_16.click()
+            # # 시간 항목의 첫번쨰 클릭
+            # time_16 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'time_16')))
+            # time_16.click()
+            # time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+                # new UiSelector().description("다음")
+            )
             time.sleep(1)
             
             # 다음 버튼 클릭
@@ -1131,7 +1172,7 @@ class TestHomeScreen:
             time.sleep(1)
             
             # 집 체크박스 클릭
-            home_checkbox = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="집"]')
+            home_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '집')
             home_checkbox.click()
             time.sleep(1)
             
@@ -1145,51 +1186,104 @@ class TestHomeScreen:
             location_btn.click()
             time.sleep(1)
             
-            # 인풋에 "다산순환로20" 넣기
-            address_input = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, '//android.widget.EditText[@resource-id="region_name"]')))
+            # 인풋에 "다산순환로20" 입력
+            address_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'address_input')))
             address_input.clear()
-            address_input.send_keys("다산순환로20")
+            address_input.send_keys("s")
             time.sleep(1)
             
             # 돋보기 버튼 클릭
-            search_btn = driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@text="검색"]')
+            search_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'search_btn')))
             search_btn.click()
             time.sleep(2)
             
             # 첫번째 항목 클릭
-            first_result = wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, '//android.widget.Button[@text="경기 가평군 가평읍 가화로 225-3 (S타운)"]')))
+            first_result = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_result')))
             first_result.click()
             time.sleep(1)
-            
+
             # 상세주소 인풋에 "1층" 넣기
-            detail_address_input = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@text="상세주소를 입력하세요"]')
+            detail_address_input = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'detail_address_input')))
             detail_address_input.clear()
             detail_address_input.send_keys("1층")
             time.sleep(1)
             
             # 확인 버튼 클릭
-            confirm_btn = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="확인"]')
+            confirm_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn')))
             confirm_btn.click()
+            time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
             time.sleep(1)
             
             # 다음 버튼 클릭
+            # next_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'next_btn')))
             next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
             next_btn.click()
             time.sleep(1)
-            
-            # 수술 체크박스 클릭
-            surgery_checkbox = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="수술"]')
-            surgery_checkbox.click()
+
+            # 정보불러오기 버튼 클릭
+            load_info_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'load_info_btn')))
+            load_info_btn.click()
             time.sleep(1)
             
+            # 김영희 항목 클릭
+            kim_younghee = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'kim_younghee')))
+            kim_younghee.click()
+            time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+
+            # 다음 버튼 클릭
+            element = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            element.click()
+            time.sleep(1)
+            
+            # 수술 체크박스 클릭
+            surgery_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '수술')
+            surgery_checkbox.click()
+            time.sleep(1)
+
+            els2 = driver.find_elements(AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().className("android.view.ViewGroup").instance(31)')
+            # 화면 안에 최소 1개가 보이면 종료
+            # print("els length:", len(els), type(len(els)))
+            if len(els2) == 1:
+                els2[0].click()
+                time.sleep(1)
+            else:
+                pass
+            
             # 일반실 체크박스 클릭
-            general_room_checkbox = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="일반실"]')
+            general_room_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '일반실')
             general_room_checkbox.click()
+            time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("치매").instance(0));'
+            )
             time.sleep(1)
             
             # 치매 체크박스 클릭
-            dementia_checkbox = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="치매"]')
+            dementia_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '치매')
             dementia_checkbox.click()
+            time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
             time.sleep(1)
             
             # 다음 버튼 클릭
@@ -1198,49 +1292,77 @@ class TestHomeScreen:
             time.sleep(1)
             
             # 성별무관 체크박스 클릭
-            gender_any = driver.find_element(AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="성별무관"]')
+            gender_any = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '성별무관')
             gender_any.click()
             time.sleep(1)
             
             # 진행안함 체크박스 클릭
-            no_proceed = driver.find_element(AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="진행안함"]')
+            no_proceed = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '진행안함')
             no_proceed.click()
+            time.sleep(1)            
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("친절함").instance(0));'
+            )
             time.sleep(1)
             
             # 친절함 체크박스 클릭
-            kind_btn = driver.find_element(AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="친절함"]')
+            kind_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '친절함')
             kind_btn.click()
+            time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
             time.sleep(1)
             
             # 다음 버튼 클릭
             next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
             next_btn.click()
             time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("이상없음").instance(0));'
+            )
+            time.sleep(1)
             
             # 이상없음 버튼 클릭
-            no_problem_btn = driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='이상없음']")
+            no_problem_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "이상없음")
             no_problem_btn.click()
             time.sleep(1)
             
             # "네, 동의합니다." 버튼 클릭
-            agree_caregiver_btn = driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='네, 동의합니다.']")
+            agree_caregiver_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "네, 동의합니다.")
             agree_caregiver_btn.click()
             time.sleep(1)
             
             # 등록하기 버튼 클릭
-            register_caregiver_btn = driver.find_element(AppiumBy.XPATH, "//android.widget.TextView[@text='등록하기']")
+            register_caregiver_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "등록하기")
             register_caregiver_btn.click()
             time.sleep(1)
             
             # 간병 공고 체크박스 클릭
-            caregiver_notice_checkbox = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="간병 공고"]')
+            caregiver_notice_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '간병공고, 환자 상태를 확인하고 간병인들이 보호자님께 직접 간병비를 제안합니다. 프로필, 돌봄경력 등 지원서를 확인하고 간병인을 선택해 보세요')
             caregiver_notice_checkbox.click()
             time.sleep(1)
             
             # 시급제안 인풋에 20000 넣기
-            hourly_rate_input = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@text="시급을 입력하세요"]')
+            hourly_rate_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'mony_input')))
             hourly_rate_input.clear()
             hourly_rate_input.send_keys("20000")
+            time.sleep(1)
+
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
             time.sleep(1)
             
             # 다음 버튼 클릭
@@ -1249,14 +1371,294 @@ class TestHomeScreen:
             time.sleep(1)
             
             # 메인이동 버튼 클릭
-            main_btn = driver.find_element(AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="메인이동"]')
+            main_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'main_btn')))
             main_btn.click()
             time.sleep(1)
             
             # 뒤로가기 버튼 클릭
-            back_btn = wait.until(EC.element_to_be_clickable((AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup')))
+            back_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_btn3')))
             back_btn.click()
             time.sleep(1)
             
         except Exception as e:
             pytest.fail(f"간병인 서비스 테스트 실패: {str(e)}")
+    
+    def test_companion_service_registration(self, driver_setup):
+        """동행서비스 신청 테스트"""
+        # driver가 딕셔너리인 경우 실제 driver 객체 추출
+        if isinstance(driver_setup, dict):
+            driver = driver_setup['driver']
+        else:
+            driver = driver_setup
+        wait = WebDriverWait(driver, 10)
+        
+        try:
+            # 홈 화면 진입 확인
+            time.sleep(2)
+            
+            # 동행서비스 버튼 클릭
+            companion_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "동행서비스, 찾기")
+            companion_btn.click()
+            time.sleep(1)
+
+            # 동행서비스 신청하기 버튼 클릭
+            companion_apply_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "동행서비스 신청하기")
+            companion_apply_btn.click()
+            time.sleep(1)
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            # "저의 가족 혹은 지인이 받을거에요." 체크박스 클릭
+            family_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '저의 가족 혹은 지인이 받을거에요.')
+            family_checkbox.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+
+            # 다음 버튼 클릭
+            next_btn2 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn2.click()
+            time.sleep(1)
+
+            # 정보불러오기 버튼 클릭
+            load_info_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'load_info_btn')))
+            load_info_btn.click()
+            time.sleep(1)
+            
+            # 김영희 항목 클릭
+            kim_younghee = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'kim_younghee')))
+            kim_younghee.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            # 희망하는 시급을 동행인에게 제안하세요 인풋에 20000 넣기
+            hourly_rate_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'hope_mony_input')))
+            hourly_rate_input.click()
+
+            hourly_rate_input2 = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@text="희망하는 시급을 동행인에게 제안하세요"]')
+            hourly_rate_input2.clear()
+            hourly_rate_input2.send_keys("20000")
+            time.sleep(1)
+
+            pass_key = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'pass_keyboard_btn')))
+            pass_key.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn3 = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn3.click()
+            time.sleep(1)
+            
+            # 만남장소의 + 버튼 클릭
+            meeting_place_add_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'meeting_place_add_btn')))
+            meeting_place_add_btn.click()
+            time.sleep(1)
+            
+            # 인풋에 새말로103 넣기
+            address_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'address_input')))
+            address_input.clear()
+            address_input.send_keys("s")
+            time.sleep(1)
+            
+            # 돋보기 버튼 클릭
+            search_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'search_btn')))
+            search_btn.click()
+            time.sleep(2)
+            
+            # 첫번째 항목 클릭
+            first_result = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_result')))
+            first_result.click()
+            time.sleep(1)
+            
+            # 확인 버튼 클릭
+            confirm_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn6')))
+            confirm_btn.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            # 방문장소의 + 버튼 클릭
+            visit_place_add_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'visit_place_add_btn')))
+            visit_place_add_btn.click()
+            time.sleep(1)
+            
+            # 인풋에 다산순환로20 넣기
+            address_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'address_input')))
+            address_input.clear()
+            address_input.send_keys("s")
+            time.sleep(1)
+            
+            # 돋보기 버튼 클릭
+            search_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'search_btn')))
+            search_btn.click()
+            time.sleep(2)
+            
+            # 첫번째 항목 클릭
+            first_result = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_result')))
+            first_result.click()
+            time.sleep(1)
+            
+            # 확인 버튼 클릭
+            confirm_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'confirm_btn7')))
+            confirm_btn.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+            
+            # 복귀장소가 만남장소와 동일합니다. 체크박스 클릭
+            same_return_checkbox = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'same_return_checkbox')))
+            same_return_checkbox.click()
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+
+            # 환자분이 사시는 곳은 어디인가요? 인풋에 강서구 넣기
+            patient_location_input = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'patient_location_input')))
+            patient_location_input.clear()
+            patient_location_input.send_keys("강서구")
+            time.sleep(1)
+            
+            # 키보드 엔터 클릭
+            driver.press_keycode(66)  # Enter key
+            time.sleep(1)
+
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            # 상관없음 체크박스 클릭
+            no_matter_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '상관없음')
+            no_matter_checkbox.click()
+            time.sleep(1)
+            
+            # 없음 체크박스 클릭
+            none_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '없음')
+            none_checkbox.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            driver.find_element(
+                AppiumBy.ANDROID_UIAUTOMATOR,
+                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
+                '.scrollIntoView(new UiSelector().textContains("다음").instance(0));'
+            )
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            # 네, 동의합니다. 체크박스 클릭
+            agree_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '네, 동의합니다.')
+            agree_checkbox.click()
+            time.sleep(1)
+            
+            # 네, 확인하였습니다. 체크박스 클릭
+            confirm_checkbox = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '네, 확인하였습니다.')
+            confirm_checkbox.click()
+            time.sleep(1)
+            
+            # 다음 버튼 클릭
+            next_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "다음")
+            next_btn.click()
+            time.sleep(1)
+            
+            # 메인이동 버튼 클릭
+            main_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'main_btn')))
+            main_btn.click()
+            time.sleep(2)
+            
+            # # 뒤로가기 버튼 클릭
+            # back_btn4 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_btn4')))
+            # back_btn4.click()
+            # time.sleep(1)
+            try:
+                # 방법 1: 일반적인 뒤로가기 버튼
+                back_btn4 = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'back_btn4')))
+                back_btn4.click()
+            except:
+                driver.back()
+            time.sleep(1)
+            
+        except Exception as e:
+            pytest.fail(f"동행서비스 테스트 실패: {str(e)}")
