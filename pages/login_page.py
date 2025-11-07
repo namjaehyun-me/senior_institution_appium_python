@@ -13,8 +13,8 @@ class LoginPage(BasePage):
                 'permission_allow': (AppiumBy.XPATH, "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_allow_button']"),
                 'password_skip': (AppiumBy.XPATH, "//android.view.ViewGroup[@content-desc='다음에 변경']"),
                 'mypage': (AppiumBy.XPATH, "//android.widget.TextView[@text='마이 페이지']"),
-                'settings': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup'),
-                'logout': (AppiumBy.XPATH, "//android.view.ViewGroup[@content-desc='로그아웃']"),
+                'settings': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]'),
+                'logout': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="로그아웃"]'),
                 'error_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='이 필드는 필수 항목입니다!']"),
                 'toast_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']")
             },

@@ -6,8 +6,8 @@ ANDROID_CAPS = {
     "platformName": "Android",
     "automationName": "UiAutomator2",
     "deviceName": "emulator-5554",
-    "appPackage": "com.teammapa.seniorcare.patient",
-    "appActivity": "com.teammapa.seniorcare.patient.MainActivity"
+    "appPackage": "com.teammapa.seniorcare.jobseeker",
+    "appActivity": "com.teammapa.seniorcare.jobseeker.MainActivity"
 }
 
 # iOS 설정

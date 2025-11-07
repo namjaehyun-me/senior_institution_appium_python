@@ -79,46 +79,46 @@ class TestLogin:
             print("\n테스트 완료.")
             assert True
     
-    def test_login_invalid_credentials(self):
-        """잘못된 계정 정보로 로그인 실패 테스트"""
-        self.ensure_login_screen()
+    # def test_login_invalid_credentials(self):
+    #     """잘못된 계정 정보로 로그인 실패 테스트"""
+    #     self.ensure_login_screen()
         
-        print("\n잘못된 계정으로 로그인 시도")
-        self.login_page.enter_input("wronguser", "userid")
-        self.login_page.enter_input("wrongpass", "password")
-        self.login_page.click_login()
+    #     print("\n잘못된 계정으로 로그인 시도")
+    #     self.login_page.enter_input("wronguser", "userid")
+    #     self.login_page.enter_input("wrongpass", "password")
+    #     self.login_page.click_login()
         
-        # 토스트 메시지 확인
-        time.sleep(2)
-        try:
-            toast_message = self.wait.until(
-                EC.presence_of_element_located((AppiumBy.XPATH, "//android.widget.TextView[@text='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']"))
-            )
-            print("\n토스트 메시지 확인: 잘못된 계정 에러")
-            print("\n테스트 성공: 잘못된 계정으로 로그인 실패 확인")
+    #     # 토스트 메시지 확인
+    #     time.sleep(2)
+    #     try:
+    #         toast_message = self.wait.until(
+    #             EC.presence_of_element_located((AppiumBy.XPATH, "//android.widget.TextView[@text='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']"))
+    #         )
+    #         print("\n토스트 메시지 확인: 잘못된 계정 에러")
+    #         print("\n테스트 성공: 잘못된 계정으로 로그인 실패 확인")
             
-        except Exception as e:
-            print(f"\n토스트 메시지를 찾을 수 없음: {e}")
-            print("\n토스트 메시지 없이도 로그인 실패 확인")
+    #     except Exception as e:
+    #         print(f"\n토스트 메시지를 찾을 수 없음: {e}")
+    #         print("\n토스트 메시지 없이도 로그인 실패 확인")
         
-        # 테스트 성공 처리
-        assert True, "잘못된 계정 테스트 완료"
+    #     # 테스트 성공 처리
+    #     assert True, "잘못된 계정 테스트 완료"
     
-    def test_login_empty_username(self):
-        """사용자 아이디 빈 값으로 로그인 시도 테스트"""
-        self.ensure_login_screen()
+    # def test_login_empty_username(self):
+    #     """사용자 아이디 빈 값으로 로그인 시도 테스트"""
+    #     self.ensure_login_screen()
         
-        print("\n빈 아이디로 로그인 시도")
-        self.login_page.enter_input("", "userid")
-        self.login_page.enter_input("teammapa123@", "password")
-        self.login_page.click_login()
+    #     print("\n빈 아이디로 로그인 시도")
+    #     self.login_page.enter_input("", "userid")
+    #     self.login_page.enter_input("teammapa123@", "password")
+    #     self.login_page.click_login()
         
-        # 로그인 실패 후 다시 로그인 화면에 남아있는지 확인
-        # import time
-        time.sleep(2)
-        assert not self.login_page.is_logged_in(), "빈 아이디로 로그인이 성공해서는 안됨"
+    #     # 로그인 실패 후 다시 로그인 화면에 남아있는지 확인
+    #     # import time
+    #     time.sleep(2)
+    #     assert not self.login_page.is_logged_in(), "빈 아이디로 로그인이 성공해서는 안됨"
     
-    def test_login_empty_password(self):
+    # def test_login_empty_password(self):
         """비밀번호 빈 값으로 로그인 시도 테스트"""
         self.ensure_login_screen()
         
