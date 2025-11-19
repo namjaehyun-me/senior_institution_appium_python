@@ -1,25 +1,32 @@
 from appium.webdriver.common.appiumby import AppiumBy
 from pages.base_page import BasePage
+from selenium.webdriver.support.ui import WebDriverWait     # 요소가 로드될 때까지 명시적 대기 추가
+from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage(BasePage):
     def _get_locator(self, element_name):
         """플랫폼별 로케이터 반환"""
         locators = {
             'android': {
-                'username': (AppiumBy.XPATH, "//android.widget.EditText[@text='아이디를 입력해 주세요.']"),
-                'password': (AppiumBy.XPATH, "//android.widget.EditText[@text='비밀번호를 입력해 주세요.']"),
-                'login_button': (AppiumBy.XPATH, "//android.view.ViewGroup[@content-desc='로그인']"),
+                'institution': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="선택"]'),
+                'business_registration_number': (AppiumBy.CLASS_NAME, 'android.widget.EditText'),
+                # 'business_registration_number': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("등록 번호를 입력하세요")'),
+                'password': (AppiumBy.XPATH, '(//android.widget.EditText)[2]'),
+                # 'password': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("비밀번호를 입력해 주세요.")'),
+                'login_button': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="로그인"]'),
                 'popup_ok': (AppiumBy.XPATH, "//android.widget.Button[@resource-id='android:id/button1']"),
-                'permission_allow': (AppiumBy.XPATH, "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_allow_button']"),
+                'permission_allow': (AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]'),
                 'password_skip': (AppiumBy.XPATH, "//android.view.ViewGroup[@content-desc='다음에 변경']"),
                 'mypage': (AppiumBy.XPATH, "//android.widget.TextView[@text='마이 페이지']"),
                 'settings': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]'),
                 'logout': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="로그아웃"]'),
                 'error_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='이 필드는 필수 항목입니다!']"),
-                'toast_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']")
+                'toast_msg': (AppiumBy.XPATH, "//android.widget.TextView[@text='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']"),
+                'location_access': (AppiumBy.ID, "com.android.permissioncontroller:id/permission_allow_foreground_only_button"),
             },
             'ios': {
-                'username': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@value='아이디를 입력해 주세요.']"),
+                'institution': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@value='아이디를 입력해 주세요.']"),
+                'business_registration_number': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@value='아이디를 입력해 주세요.']"),
                 'password': (AppiumBy.XPATH, "//XCUIElementTypeSecureTextField[@value='비밀번호를 입력해 주세요.']"),
                 'login_button': (AppiumBy.ACCESSIBILITY_ID, "로그인"),
                 'keybord_return': (AppiumBy.ACCESSIBILITY_ID, "Return"),
@@ -30,7 +37,8 @@ class LoginPage(BasePage):
                 'settings': (AppiumBy.XPATH, "(//XCUIElementTypeOther[@name='Mapa.'])[2]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]"),
                 'logout': (AppiumBy.ACCESSIBILITY_ID, "로그아웃"),
                 'error_msg': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='이 필드는 필수 항목입니다!']"),
-                'toast_msg': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']")
+                'toast_msg': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']"),
+                'location_access': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='아이디/이메일 또는 비밀번호를 잘못 입력했습니다.']")
             }
         }
         return locators[self.platform][element_name]
@@ -38,13 +46,29 @@ class LoginPage(BasePage):
     
     def enter_input(self, userinfo, input_type):
         """통합 입력 메서드"""
-        if input_type == "userid" or input_type == "username":
-            self.send_keys(self._get_locator('username'), userinfo)
+        wait = WebDriverWait(self.driver, 10)
+
+        if input_type == "institution":
+            # institution = self.find_element(self._get_locator(self,'institution'))
+            institution = self.find_element((AppiumBy.ACCESSIBILITY_ID, '선택'))
+            institution.click()
+
+            institution_type = self.find_element((AppiumBy.ACCESSIBILITY_ID, '재가복지센터'))
+            institution_type.click()
             # iOS에서 아이디 입력 후 키보드 닫기
+            # if self.platform == 'ios':
+            #     self._close_keyboard_ios()
+        elif input_type == "business_registration_number":
+            institution_number = wait.until(EC.presence_of_element_located(self._get_locator('business_registration_number')))
+            institution_number.clear()
+            institution_number.send_keys(userinfo)
+            # iOS에서 비밀번호 입력 후 키보드 닫기
             if self.platform == 'ios':
                 self._close_keyboard_ios()
         elif input_type == "password":
-            self.send_keys(self._get_locator('password'), userinfo)
+            institution_password = wait.until(EC.presence_of_element_located(self._get_locator('password')))
+            institution_password.clear()
+            institution_password.send_keys(userinfo)
             # iOS에서 비밀번호 입력 후 키보드 닫기
             if self.platform == 'ios':
                 self._close_keyboard_ios()
@@ -77,8 +101,8 @@ class LoginPage(BasePage):
                     # 모든 방법 실패
                     pass
 
-    # def enter_username(self, username):
-    #     self.send_keys(self.USERNAME_FIELD, username)
+    # def enter_business_registration_number(self, business_registration_number):
+    #     self.send_keys(self.USERNAME_FIELD, business_registration_number)
     
     # def enter_password(self, password):
     #     self.send_keys(self.PASSWORD_FIELD, password)
@@ -114,7 +138,7 @@ class LoginPage(BasePage):
         """로그인 상태 확인"""
         try:
             # 로그인 화면의 아이디 입력 필드가 있으면 로그인 안됨
-            self.find_element(self._get_locator('username'))
+            self.find_element(self._get_locator('business_registration_number'))
             return False
         except:
             # 에러 메시지가 있으면 로그인 화면에 있는 것
@@ -182,8 +206,8 @@ class LoginPage(BasePage):
     
     def _handle_ios_permission_modal(self):
         """아이오에스 알림 허용 모달 처리"""
-        import time
-        time.sleep(2)  # 모달 로딩 대기
+        # import time
+        # time.sleep(2)  # 모달 로딩 대기
         
         # 방법 1: 일반적인 iOS 알림 버튼
         ios_permission_selectors = [
@@ -221,6 +245,14 @@ class LoginPage(BasePage):
         """비밀번호 변경 화면이 있으면 '다음에 변경' 버튼 클릭"""
         try:
             self.click_element(self._get_locator('password_skip'))
+        except:
+            # 비밀번호 변경 화면이 없으면 무시
+            pass
+    
+    def location_access_present(self):
+        """위치 권한 모달이 뜨면 앱 사용중에는 클릭"""
+        try:
+            self.click_element(self._get_locator('location_access'))
         except:
             # 비밀번호 변경 화면이 없으면 무시
             pass

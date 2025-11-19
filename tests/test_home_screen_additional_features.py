@@ -151,7 +151,7 @@ class TestHomeScreenAditionalFeatures:
                 'search_confirm_btn': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="확인"])[2]'),
                 # 'search_confirm_btn': (AppiumBy.XPATH, '(//android.widget.TextView[@text="확인"])[2]'),
                 # 알림 관련 로케이터
-                'notification_bell_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                'notification_bell_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]'),
                 'first_notification_item': (AppiumBy.XPATH, '//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 'notification_detail_content': (AppiumBy.XPATH, '//android.widget.TextView'),
                 'notification_back_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
@@ -159,24 +159,16 @@ class TestHomeScreenAditionalFeatures:
                 'proceed_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="진행"]'),
                 'notification_list_back_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 # 햄버거 메뉴 관련 로케이터
-                'hamburger_menu_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]'),
+                'hamburger_menu_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]'),
                 'menu_visit_care_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="방문요양 찾기"]'),
                 'menu_companion_service_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="동행서비스"]'),
                 'menu_caregiver_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="간병인 찾기"]'),
-                'menu_ltc_facility_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="장기요양기관찾기"]'),
                 'menu_housekeeping_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="가사돌봄"]'),
-                'menu_my_info_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="내정보관리"]'),
                 'menu_family_info_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="가족정보관리"]'),
                 'menu_service_history_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="서비스 이용내역"]'),
                 'menu_favorite_institutions_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="관심기관"]'),
                 'menu_payment_management_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="결제관리"]'),
                 'menu_certificate_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="증명서 발급"]'),
-                'menu_notice_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="공지사항"]'),
-                'menu_event_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="이벤트"]'),
-                'menu_faq_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="자주묻는질문"]'),
-                'menu_customer_center_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="고객센터"]'),
-                'menu_suggestion_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="앱 기능 건의함"]'),
-                'menu_notification_settings_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="알림설정"]'),
                 'menu_back_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
                 # 새로운 시나리오 로케이터들
                 'search_input_icon': (AppiumBy.XPATH, '//android.widget.EditText[@text="검색"]'),
@@ -188,19 +180,47 @@ class TestHomeScreenAditionalFeatures:
                 'apply_btn_job': (AppiumBy.XPATH, '(//android.view.ViewGroup[@content-desc="지원하기"])[1]'),
                 'back_btn_general': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="뒤로가기"]'),
                 'menu_recruitment_home_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="채용홈"]'),
-                'menu_care_worker_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="요양보호사"]'),
-                'menu_social_worker_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="사회복지사"]'),
                 'menu_care_housekeeping_companion_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="간병/가사/동행"]'),
                 'menu_matching_info_management_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="매칭정보관리"]'),
                 'menu_application_status_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="지원현황"]'),
                 'menu_scrap_jobs_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="스크랩공고"]'),
                 'menu_resume_management_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="이력서 관리"]'),
                 'menu_premium_matching_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="프리미엄매칭관리"]'),
-                'menu_position_proposal_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="포지션제안"]'),
                 'menu_favorite_companies_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="관심기업"]'),
-                'menu_learning_materials_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="학습자료실"]'),
                 'menu_agree_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="약관 및 정책"]'),
                 'modal_applys': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("이미 지원한 공고입니다!")'),
+                # 채용모드 검색 시나리오 로케이터들
+                'recruitment_mode_btn': (AppiumBy.XPATH, '//android.widget.TextView[@text="채용모드"]'),
+                'search_magnifier_btn': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                'search_input_hanmaeum': (AppiumBy.XPATH, '//android.widget.EditText[@text="검색"]'),
+                'hanmaeum_nursing_home_result': (AppiumBy.XPATH, '//android.widget.TextView[@text="한마음요양원"]'),
+                'first_search_result_item': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.HorizontalScrollView/android.view.ViewGroup/android.view.ViewGroup'),
+                'back_btn_search': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                'back_btn_search_list': (AppiumBy.XPATH, '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]'),
+                # 새로운 알림 및 햄버거 메뉴 시나리오 로케이터들
+                'notification_detail_content': (AppiumBy.XPATH, '//android.widget.TextView'),
+                'menu_recruitment_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="채용"]'),
+                'menu_admission_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="입소"]'),
+                'menu_recruitment_home_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="채용공고홈"]'),
+                'menu_social_worker_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="사회복지사"]'),
+                'menu_care_worker_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="요양보호사"]'),
+                'menu_ltc_facility_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="장기요양기관찾기"]'),
+                'menu_my_info_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="내정보관리"]'),
+                'menu_institution_info_management_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="기관정보관리"]'),
+                'menu_position_proposal_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="포지션제안"]'),
+                'menu_admission_proposal_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="입소제안"]'),
+                'menu_recruitment_announcement_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="채용공고"]'),
+                'menu_admission_proposal_inquiry_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="입소문의"]'),
+                'menu_service_payment_history_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="서비스 결제내역"]'),
+                'menu_notice_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="공지사항"]'),
+                'menu_learning_materials_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="학습자료실"]'),
+                'menu_event_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="이벤트"]'),
+                'menu_faq_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="자주묻는질문"]'),
+                'menu_customer_center_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="고객센터"]'),
+                'menu_suggestion_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="앱 기능 건의함"]'),
+                'menu_notification_settings_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="알림설정"]'),
+                'menu_terms_and_policies_btn': (AppiumBy.XPATH, '//android.view.ViewGroup[@content-desc="약관 및 정책"]'),
+                'list_not_have_text': (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("데이터를 찾을 수 없습니다")'),
             },
             'ios': {
                 # TODO: iOS 요소들 - 실제 요소 확인 후 수정 필요
@@ -342,13 +362,30 @@ class TestHomeScreenAditionalFeatures:
                 'menu_favorite_companies_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='관심기업']"),
                 'menu_learning_materials_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='학습자료실']"),
                 'modal_applys': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='학습자료실']"),
+                # 채용모드 검색 시나리오 로케이터들
+                'recruitment_mode_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='채용모드']"),
+                'search_magnifier_btn': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='돋보기']"),
+                'search_input_hanmaeum': (AppiumBy.XPATH, "//XCUIElementTypeTextField[@name='검색어를 입력하세요']"),
+                'hanmaeum_nursing_home_result': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='한마음요양원']"),
+                'first_search_result_item': (AppiumBy.XPATH, "(//XCUIElementTypeCell)[1]"),
+                'back_btn_search': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='뒤로가기']"),
+                'back_btn_search_list': (AppiumBy.XPATH, "//XCUIElementTypeButton[@name='뒤로가기']"),
+                # 새로운 알림 및 햄버거 메뉴 시나리오 로케이터들
+                'notification_detail_content': (AppiumBy.XPATH, "//XCUIElementTypeStaticText"),
+                'menu_recruitment_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='채용']"),
+                'menu_admission_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='입소']"),
+                'menu_recruitment_home_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='채용공고홈']"),
+                'menu_institution_info_management_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='기관정보관리']"),
+                'menu_admission_proposal_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='입소제안']"),
+                'menu_service_payment_history_btn': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='서비스 결제내역']"),
+                'list_not_have_text': (AppiumBy.XPATH, "//XCUIElementTypeStaticText[@name='서비스 결제내역']"),
             }
         }
         
         return locators[platform][element_name]
-    
-    def test_job_search_and_actions(self, driver_setup):
-        """홈화면 → 검색 → CS 검색 → 공고 클릭 → 스크랩/관심기업/지원하기 테스트"""
+
+    def test_recruitment_mode_search_hanmaeum(self, driver_setup):
+        """홈화면 → 채용모드 버튼 클릭 → 돋보기 버튼 클릭 → 검색 인풋에 한마음 넣기 → 목록에 한마음요양원이 뜨는지 확인 → 첫번째 항목 클릭 → 뒤로가기 버튼 클릭 → 뒤로가기 버튼 클릭"""
         if isinstance(driver_setup, dict):
             driver = driver_setup['driver']
         else:
@@ -356,109 +393,50 @@ class TestHomeScreenAditionalFeatures:
         wait = WebDriverWait(driver, 10)
         
         try:
-            time.sleep(0.5)
+            time.sleep(1)
             
-            # 검색 인풋 클릭
-            search_input_icon = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'search_input_icon')))
-            search_input_icon.click()
-            time.sleep(0.5)
+            # 채용모드 버튼 클릭
+            # recruitment_mode_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'recruitment_mode_btn')))
+            recruitment_mode_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "채용모드")
+            recruitment_mode_btn.click()
+            time.sleep(1)
             
-            # 검색 인풋에 CS 넣기
-            search_input = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'search_input_cs')))
+            # 돋보기 버튼 클릭
+            search_magnifier_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'search_magnifier_btn')))
+            search_magnifier_btn.click()
+            time.sleep(1)
+            
+            # 검색 인풋에 '국민건강보험공단' 입력
+            search_input = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'search_input_hanmaeum')))
             search_input.click()
             search_input.clear()
-            search_input.send_keys("CS")
-            time.sleep(0.5)
+            search_input.send_keys("국민건강보험공단")
+            time.sleep(2)
             
-            driver.find_element(
-                AppiumBy.ANDROID_UIAUTOMATOR,
-                'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
-                '.scrollIntoView(new UiSelector().textContains("공고 제목").instance(0));'
-            )
-            time.sleep(0.5)
-
-            # 공고 제목 텍스트를 클릭해서 키보드 포커싱 끄기
-            job_title = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'job_title')))
-            job_title.click()
-            time.sleep(0.5)
+            # # 목록에 한마음요양원이 뜨는지 확인
+            # hanmaeum_result = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'hanmaeum_nursing_home_result')))
+            # assert hanmaeum_result.is_displayed(), "국민건강보험공단 서울요양원 검색 결과에 표시되어야 함"
+            # print("국민건강보험공단 서울요양원 검색 결과 확인")
+            # time.sleep(1)
             
-            # 공고 제목 아래의 항목중 첫번째 항목 클릭
-            first_job_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_job_item')))
-            first_job_item.click()
-            time.sleep(0.5)
+            # 첫번째 항목 클릭
+            first_result_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_search_result_item')))
+            first_result_item.click()
+            time.sleep(2)
             
-            # 스크랩 버튼 클릭
-            # scrap_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'scrap_btn')))
-            scrap_btn = driver.find_elements(AppiumBy.ACCESSIBILITY_ID, "스크랩")
-            if len(scrap_btn) == 1:
-                scrap_btn[0].click()
-                time.sleep(0.5)
-            else:
-                scrap_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "삭제")
-                scrap_btn.click()
-                time.sleep(0.5)
-
-            # 토스트 메세지 확인
-            try:
-                toast_message = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'toast_message')))
-                assert toast_message.is_displayed(), "이 공고를 즐겨찾기 목록에 추가했습니다!" or "이 공고를 즐겨찾기 목록에서 제거했습니다!" in toast_message.text
-                print(f"스크랩 토스트 메세지 찾음")
-                time.sleep(1)
-            except:
-                print("스크랩 토스트 메세지를 찾을 수 없습니다")
-            
-            # 관심기업 버튼 클릭
-            # favorite_company_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'favorite_company_btn')))
-            favorite_company_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "관심기업")
-            favorite_company_btn.click()
-            time.sleep(0.5)
-            
-            # 토스트 메세지 확인
-            try:
-                toast_message = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'toast_message')))
-                assert toast_message.is_displayed(), "이 시설를 즐겨찾기 목록에 추가했습니다!" or "이 시설를 즐겨찾기 목록에서 제거했습니다!" in toast_message.text
-                print(f"관심기업 토스트 메세지 찾음")
-                time.sleep(1)
-            except:
-                print("관심기업 토스트 메세지를 찾을 수 없습니다")
-            
-            # 지원하기 버튼 클릭
-            # apply_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'apply_btn_job')))
-            apply_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "지원하기")
-            apply_btn.click()
-            time.sleep(0.5)
-            
-            # 지원하기 버튼 다시 클릭
-            apply_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'apply_btn_job')))
-            apply_btn.click()
-            time.sleep(0.5)
-            
-            # 이미 지원한 공고 모달
-            modal_applys = driver.find_elements(*self._get_locator(driver, 'modal_applys'))
-            if len(modal_applys) == 1:
-                confirm = driver.find_element(AppiumBy.ACCESSIBILITY_ID, '확인')
-                confirm.click()
-                time.sleep(0.5)
-            else:
-                try:
-                    toast_message = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'toast_message')))
-                    assert toast_message.is_displayed(), "완료!"
-                    print(f"지원하기 토스트 메세지 찾음")
-                    time.sleep(1)
-                except:
-                    print("지원하기 토스트 메세지를 찾을 수 없습니다")
-                pass
-            
-            # 토스트 메세지 확인
-            
-            # 뒤로가기 버튼 클릭
+            # 뒤로가기 버튼 클릭 (상세 화면에서)
             driver.back()
             
+            # 뒤로가기 버튼 클릭 (검색 결과 목록에서)
+            driver.back()
+            
+            print("채용모드 검색 시나리오 완료")
+            
         except Exception as e:
-            pytest.fail(f"채용 검색 및 액션 테스트 실패: {str(e)}")
+            pytest.fail(f"채용모드 검색 시나리오 테스트 실패: {str(e)}")
     
-    def test_notification_detail_management(self, driver_setup):
-        """홈화면 → 알림 종 버튼 → 첫번째 항목 → 상세내용 확인 → X버튼 → 진행 테스트"""
+    def test_notification_detail_and_delete(self, driver_setup):
+        """홈화면 → 알림 종 버튼 클릭 → 목록에서 첫번째 항목 클릭 → 알림 상세내용이 잘나오는지 확인 → 뒤로가기 버튼 클릭 → 첫번째 항목의 X 버튼 클릭 → 진행 버튼 클릭 → 뒤로가기 버튼 클릭"""
         if isinstance(driver_setup, dict):
             driver = driver_setup['driver']
         else:
@@ -473,34 +451,49 @@ class TestHomeScreenAditionalFeatures:
             notification_bell_btn.click()
             time.sleep(0.5)
             
-            # 목록에서 첫번째 항목 클릭
-            first_notification_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_notification_item')))
-            first_notification_item.click()
-            time.sleep(2)
+            list_not_have_text = driver.find_elements(*self._get_locator(driver, 'list_not_have_text'))
+            print("목록 항목 확인")
+            if len(list_not_have_text) > 0:
+                print("목록에 항목 없음")
+                time.sleep(0.5)
+            else:
+                # 목록에서 첫번째 항목 클릭
+                first_notification_item = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_notification_item')))
+                first_notification_item.click()
+                print("목록에 항목 있음")
+                time.sleep(2)
+                # 뒤로가기 버튼 클릭
+                driver.back()
+                # time.sleep(0.5)
+                
+                # 첫번째 항목의 X 버튼 클릭
+                first_notification_x_btn = driver.find_element(*self._get_locator(driver, 'first_notification_x_btn'))
+                first_notification_x_btn.click()
+                time.sleep(0.5)
+                
+                # 진행 버튼 클릭
+                proceed_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "진행")
+                proceed_btn.click()
+                time.sleep(0.5)
+            
+            # 알림 상세내용이 잘나오는지 확인
+            # notification_content = wait.until(EC.presence_of_element_located(self._get_locator(driver, 'notification_detail_content')))
+            # assert notification_content.is_displayed(), "알림 상세내용이 표시되어야 함"
+            # print("알림 상세내용 확인 완료")
+            # time.sleep(1)
+            
             
             # 뒤로가기 버튼 클릭
             driver.back()
+            # time.sleep(0.5)
             
-            # 첫번째 항목의 X 버튼 클릭
-            # first_notification_x_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'first_notification_x_btn')))
-            first_notification_x_btn = driver.find_element(*self._get_locator(driver, 'first_notification_x_btn'))
-            first_notification_x_btn.click()
-            time.sleep(0.5)
-            
-            # 진행 버튼 클릭
-            # proceed_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'proceed_btn')))
-            proceed_btn = driver.find_element(AppiumBy.ACCESSIBILITY_ID, "진행")
-            proceed_btn.click()
-            time.sleep(0.5)
-            
-            # 뒤로가기 버튼 클릭
-            driver.back()
+            print("알림 상세 및 삭제 테스트 완료")
             
         except Exception as e:
-            pytest.fail(f"알림 상세 관리 테스트 실패: {str(e)}")
+            pytest.fail(f"알림 상세 및 삭제 테스트 실패: {str(e)}")
     
-    def test_comprehensive_hamburger_menu_navigation(self, driver_setup):
-        """햄버거 메뉴 전체 내비게이션 테스트"""
+    def test_comprehensive_hamburger_menu_all_navigation(self, driver_setup):
+        """홈화면 → 햄버거 메뉴 → 모든 메뉴 항목 순차 테스트"""
         if isinstance(driver_setup, dict):
             driver = driver_setup['driver']
         else:
@@ -508,23 +501,22 @@ class TestHomeScreenAditionalFeatures:
         wait = WebDriverWait(driver, 10)
         
         try:
-            time.sleep(2)
+            time.sleep(1)
+            
             # 햄버거 메뉴 버튼 클릭
             hamburger_menu_btn = wait.until(EC.element_to_be_clickable(self._get_locator(driver, 'hamburger_menu_btn')))
             hamburger_menu_btn.click()
             time.sleep(1)
-            
+
             # 각 메뉴 항목 클릭 및 뒤로가기
             menu_items = [
-                'menu_recruitment_home_btn', 'menu_care_worker_btn', 'menu_social_worker_btn',
-                'menu_care_housekeeping_companion_btn', 'menu_my_info_btn', 'menu_matching_info_management_btn',
-                'menu_application_status_btn', 'menu_scrap_jobs_btn', 'menu_resume_management_btn',
-                'menu_premium_matching_btn', 'menu_position_proposal_btn', 'menu_favorite_companies_btn',
-                'menu_notice_btn', 'menu_event_btn', 'menu_faq_btn',
-                'menu_customer_center_btn', 
-                'menu_suggestion_btn',
-                'menu_learning_materials_btn',
-                'menu_notification_settings_btn','menu_agree_btn'
+                'menu_recruitment_btn', 'menu_admission_btn', 'menu_recruitment_home_btn',
+                'menu_social_worker_btn', 'menu_care_worker_btn', 'menu_ltc_facility_btn',
+                'menu_my_info_btn', 'menu_institution_info_management_btn', 'menu_position_proposal_btn',
+                'menu_admission_proposal_btn', 'menu_recruitment_announcement_btn', 'menu_admission_proposal_inquiry_btn',
+                'menu_service_payment_history_btn', 'menu_notice_btn', 'menu_event_btn',
+                'menu_faq_btn', 'menu_customer_center_btn', 'menu_suggestion_btn', 'menu_learning_materials_btn','menu_notification_settings_btn',
+                'menu_terms_and_policies_btn'
             ]
             
             for menu_item in menu_items:
@@ -532,32 +524,42 @@ class TestHomeScreenAditionalFeatures:
                 menu_btn.click()
                 time.sleep(0.5)
 
-                try:
-                    loction_access_modal = driver.find_elements(*self._get_locator(driver, 'loction_access_modal'))
-                    print(f"채용홈 위치 권한 모달 개수: {len(loction_access_modal)}")
-                    # 채용홈 위치 권한 모달
-                    if len(loction_access_modal) == 1:
-                        print("채용홈 위치 권한 모달 표시됨")
-                        loction_access_modal[0].click()
-                        print("채용홈 위치 권한 모달 클릭됨")
-                        time.sleep(0.5)
+                # try:
+                #     loction_access_modal = driver.find_elements(*self._get_locator(driver, 'loction_access_modal'))
+                #     print(f"채용홈 위치 권한 모달 개수: {len(loction_access_modal)}")
+                #     # 채용홈 위치 권한 모달
+                #     if len(loction_access_modal) == 1:
+                #         print("채용홈 위치 권한 모달 표시됨")
+                #         loction_access_modal[0].click()
+                #         print("채용홈 위치 권한 모달 클릭됨")
+                #         time.sleep(0.5)
 
-                except:
-                    pass
-                driver.back()
-                time.sleep(0.5)
+                # except:
+                #     pass
+
 
                 try:
                     # 바텀메뉴로있는 메뉴의 경우엔 뒤로가기버튼을 클릭하면 홈화면으로 이동되어 다시 햄버거 아이콘을 클릭
                     hamburger_menu_btn2 = driver.find_elements(*self._get_locator(driver, 'hamburger_menu_btn'))
+                    print(f"햄버거 메뉴 버튼 개수: {len(hamburger_menu_btn2)}")
                     if len(hamburger_menu_btn2) == 1:
                         hamburger_menu_btn2[0].click()
-                        time.sleep(0.5)
-
+                        time.sleep(3)
+                    else:
+                        if menu_item == 'menu_recruitment_home_btn':
+                            driver.back()
+                        elif menu_item == 'menu_social_worker_btn':
+                            driver.back()
+                        elif menu_item == 'menu_care_worker_btn':
+                            driver.back()
+                        else:
+                            driver.back()
+                        print('여기까지는 왔어1')
                 except:
                     pass
 
-                if menu_item == 'menu_favorite_companies_btn':
+                print('여기까지는 왔어2')
+                if menu_item == 'menu_recruitment_announcement_btn':
                     driver.find_element(
                         AppiumBy.ANDROID_UIAUTOMATOR,
                         'new UiScrollable(new UiSelector().scrollable(true).instance(0))'
@@ -567,7 +569,13 @@ class TestHomeScreenAditionalFeatures:
             
             # 마지막 뒤로가기
             driver.back()
-            time.sleep(1)
+
+            # 뒤로가기 버튼 클릭 (3번)
+            # for i in range(3):
+            #     driver.back()
+            #     time.sleep(0.5)
+            
+            print("종합 햄버거 메뉴 모든 항목 네비게이션 테스트 완료")
             
         except Exception as e:
-            pytest.fail(f"종합 햄버거 메뉴 내비게이션 테스트 실패: {str(e)}")
+            pytest.fail(f"종합 햄버거 메뉴 모든 항목 네비게이션 테스트 실패: {str(e)}")

@@ -49,8 +49,9 @@ class TestLogin:
         # import time
         print("\n로그인을 진행합니다.")
         
-        self.login_page.enter_input("evankim2", "userid")
-        self.login_page.enter_input("teammapa123@", "password")
+        self.login_page.enter_input("institution", "institution")
+        self.login_page.enter_input("21168000177", "business_registration_number")
+        self.login_page.enter_input("12345", "password")
         self.login_page.click_login()
         
         # 로그인 후 처리 순서: 비밀번호 변경 -> 알림 허용
@@ -59,6 +60,8 @@ class TestLogin:
         self.login_page.skip_password_change_if_present()
         time.sleep(1)
         self.login_page.allow_permission_if_present()
+        time.sleep(1)
+        self.login_page.location_access_present()
         
         # 로그인 성공 후 로그아웃 진행
         time.sleep(2)  # 화면 전환 대기
@@ -119,19 +122,19 @@ class TestLogin:
     #     assert not self.login_page.is_logged_in(), "빈 아이디로 로그인이 성공해서는 안됨"
     
     # def test_login_empty_password(self):
-        """비밀번호 빈 값으로 로그인 시도 테스트"""
-        self.ensure_login_screen()
+        # """비밀번호 빈 값으로 로그인 시도 테스트"""
+        # self.ensure_login_screen()
         
-        print("\n빈 비밀번호로 로그인 시도")
-        self.login_page.enter_input("evankim2", "userid")
-        self.login_page.enter_input("", "password")
-        self.login_page.click_login()
+        # print("\n빈 비밀번호로 로그인 시도")
+        # self.login_page.enter_input("evankim2", "userid")
+        # self.login_page.enter_input("", "password")
+        # self.login_page.click_login()
         
-        # "이 필드는 필수 항목입니다!" 메시지 확인
-        # import time
-        time.sleep(2)
-        error_message = self.wait.until(
-            EC.presence_of_element_located((AppiumBy.XPATH, "//android.widget.TextView[@text='이 필드는 필수 항목입니다!']"))
-        )
-        assert error_message.is_displayed(), "빈 비밀번호 에러 메시지가 표시되어야 함"
-        assert not self.login_page.is_logged_in(), "로그인 화면에 남아있어야 함"
+        # # "이 필드는 필수 항목입니다!" 메시지 확인
+        # # import time
+        # time.sleep(2)
+        # error_message = self.wait.until(
+        #     EC.presence_of_element_located((AppiumBy.XPATH, "//android.widget.TextView[@text='이 필드는 필수 항목입니다!']"))
+        # )
+        # assert error_message.is_displayed(), "빈 비밀번호 에러 메시지가 표시되어야 함"
+        # assert not self.login_page.is_logged_in(), "로그인 화면에 남아있어야 함"

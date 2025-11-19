@@ -44,23 +44,26 @@ def driver_setup(platform, request):
         try:
             # 팝업 처리
             login_page.close_popup_if_present()
-            time.sleep(2)
+            # time.sleep(2)
             
             # 로그인 상태 확인
             if not login_page.is_logged_in():
                 print("로그인이 필요합니다. 자동 로그인을 진행합니다.")
                 
                 # 로그인 수행
-                login_page.enter_input("evankim2", "userid")
-                login_page.enter_input("teammapa123@", "password")
+                login_page.enter_input("institution", "institution")
+                login_page.enter_input("21168000177", "business_registration_number")
+                login_page.enter_input("12345", "password")
                 login_page.click_login()
                 
                 # 로그인 후 처리
-                time.sleep(2)
+                # time.sleep(2)
                 login_page.skip_password_change_if_present()
-                time.sleep(1)
+                # time.sleep(1)
                 login_page.allow_permission_if_present()
-                time.sleep(2)
+                # time.sleep(1)
+                login_page.location_access_present()
+                # time.sleep(2)
                 
                 print("✅ 자동 로그인 완료")
             else:
